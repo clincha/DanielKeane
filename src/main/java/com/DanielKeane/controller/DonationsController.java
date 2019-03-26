@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class DonationsController {
 
-    @GetMapping("donations")
+    @GetMapping("/donations")
     public ModelAndView donations(){
         return new ModelAndView("donations");
     }

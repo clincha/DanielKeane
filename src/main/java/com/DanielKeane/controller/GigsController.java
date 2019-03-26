@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 public class GigsController {
 
-    @GetMapping("gigs")
+    @GetMapping("/gigs")
     public ModelAndView gigs() {
         List<Gig> gigList = new ArrayList<>(3);
         gigList.add(new Gig("Cherry Tree", LocalDateTime.now(), 100));

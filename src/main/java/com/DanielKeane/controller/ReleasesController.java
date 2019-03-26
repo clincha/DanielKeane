@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 public class ReleasesController {
 
-    @GetMapping("releases")
+    @GetMapping("/releases")
     public ModelAndView releases() {
         Cd cd = new Cd("Suburban Ballet",
                 "https://i.scdn.co/image/b56cdf27681ccca512849e74c4e03029960ae7e8",
