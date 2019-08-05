@@ -1,40 +1,34 @@
-<#import "navigation.ftl" as navigation>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Daniel Keane</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-</head>
-<body>
-<@navigation.navbar/>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            About Section
+<#import "standardpage.ftl" as layout>
+<@layout.standardPage>
+    <div class="container-fluid">
+        <div id="about-main-image-container">
+            <img alt="Banner image" id="about-main-image" src="images/banner-edit.png">
         </div>
-        <div class="col-md-6">
-            <img alt="img-1" src="https://suttons.s3.amazonaws.com/p/FLSTIT31691_3.jpg">
-            <img alt="img-1" src="https://suttons.s3.amazonaws.com/p/FLSTIT31691_3.jpg">
-            <img alt="img-1" src="https://suttons.s3.amazonaws.com/p/FLSTIT31691_3.jpg">
-            <img alt="img-1" src="https://suttons.s3.amazonaws.com/p/FLSTIT31691_3.jpg">
-            <img alt="img-1" src="https://suttons.s3.amazonaws.com/p/FLSTIT31691_3.jpg">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <p>
+                    Daniel Keane is an indie-pop artist from Kent, combining catchy pop melodies, contemporary
+                    millennial
+                    lyricism, and electronic influences to create a fresh new sound. Born in a dismal conservative
+                    Maidstone,
+                    Daniel
+                    performed behind ‘Bonhomie’ for 5 years, before continuing under a new project ‘Daniel Keane’.
+                    Inspired
+                    by
+                    nightlife,
+                    the mental health of others and the struggle of musicianship – the Keane boi was born. Performing
+                    throughout
+                    the
+                    South-East, Daniel Keane + The Anime (performing band) perform a ‘tight, eclectic and memorable set’
+                    according to D. Kitchener and C. Austen. Releasing ‘Suburban Ballet’ in early 2019, and with an
+                    upcoming
+                    EP,
+                    there is
+                    much more on the way from Daniel Keane and his band...
+                </p>
+            </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
-</div>
-
-<script src="https://suttons.s3.amazonaws.com/p/FLSTIT31691_3.jpg"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://suttons.s3.amazonaws.com/p/FLSTIT31691_3.jpg"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://suttons.s3.amazonaws.com/p/FLSTIT31691_3.jpg"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+</@layout.standardPage>
