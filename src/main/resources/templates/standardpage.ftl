@@ -11,7 +11,13 @@
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
               crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/62e2a21ac4.js"></script>
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/navigation.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/gigs.css">
+        <link rel="stylesheet" href="/css/card.css">
+        <link rel="stylesheet" href="/css/about.css">
+        <link rel="stylesheet" href="/css/release.css">
     </head>
     <body class="full-view-height">
     <@navigation.navbar/>

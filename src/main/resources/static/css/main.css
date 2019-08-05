@@ -2,62 +2,7 @@ body {
     background-color: black;
 }
 
-#main-video-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#main-video {
-    width: 100%;
-    height: 60vh;
-}
-
-#header-logo {
-    height: 5vh;
-}
-
-#about-main-image-container {
-    display: flex;
-}
-
-.full-height {
-    height: 100%;
-}
-
-.full-view-height {
-    height: 100vh;
-}
-
 .col-centered {
     float: none;
     margin: 0 auto;
-}
-
-.navbar-nav {
-    float: none;
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-}
-
-.navbar-nav > li {
-    display: inline-block;
-    float: none;
-}
-
-.nav-link {
-    font-family: "Times New Roman", serif;
-    font-size: 15px;
-    color: black;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.card {
-    margin: 10px;
-}
-
-.card-img-top {
-    margin-bottom: 10px;
 }
