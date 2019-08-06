@@ -16,6 +16,6 @@ public class ReleaseServiceTest {
 
   @Test
   public void testGetSpotifyReleases() throws IOException, ParseException {
-    releaseService.getAllReleases();
+    System.out.println(releaseService.getReleases());
   }
 }

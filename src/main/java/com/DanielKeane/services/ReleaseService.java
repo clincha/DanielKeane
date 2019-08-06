@@ -1,5 +1,6 @@
 package com.DanielKeane.services;
 
+import com.DanielKeane.entities.Album;
 import org.apache.http.HttpHeaders;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.LinkedHashMap;
 
@@ -21,13 +24,9 @@ public class ReleaseService {
 
 
   private static final String CLIENT_ID = "47317c5eed3b4029973a44bdfd82dbda";
-  private static final String CLIENT_SECRET = "6c4db1dab1224cf5aea69cdd77772d6d";
+  private static final String CLIENT_SECRET = "";
 
-  public void getAllReleases() throws IOException, ParseException {
-    getSpotifyReleases();
-  }
-
-  private void getSpotifyReleases() throws IOException, ParseException {
+  public ArrayList<Album> getReleases() throws IOException, ParseException {
     HttpUriRequest request;
     CloseableHttpResponse response;
     LinkedHashMap responseJson;
@@ -51,18 +50,31 @@ public class ReleaseService {
     final Instant expiry = Instant.now().plusSeconds(expires_in.longValue());
 
     request = RequestBuilder.get()
-      .setUri("https://api.spotify.com/v1/artists/7GijLdxqYBxYpORf7W5ex1")
+      .setUri("https://api.spotify.com/v1/artists/7GijLdxqYBxYpORf7W5ex1/albums")
       .setHeader(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken)
-      .addParameter("grant_type", "client_credentials")
       .build();
 
     response = client.execute(request);
 
     responseJson = new JSONParser(response.getEntity().getContent()).parseObject();
 
-    System.out.println(responseJson);
-    // This gets the JSON for Daniel Keane's spotify artist
-    response.close();
+    ArrayList<LinkedHashMap<Object, Object>> albumsJson = (ArrayList<LinkedHashMap<Object, Object>>) responseJson.get("items");
+
+    ArrayList<Album> albums = new ArrayList<>(albumsJson.size());
+
+    for (LinkedHashMap<Object, Object> albumJson : albumsJson) {
+      Album album = new Album(
+        albumJson.get("id").toString(),
+        albumJson.get("name").toString(),
+        albumJson.get("album_group").toString(),
+        ((BigInteger) albumJson.get("total_tracks")).intValue(),
+        LocalDate.parse((CharSequence) albumJson.get("release_date"))
+      );
+
+      albums.add(album);
+    }
+
+    return albums;
   }
 
 

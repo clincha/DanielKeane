@@ -1,18 +1,17 @@
-<#macro release spotifyUrl>
-    <div class="card">
+<#macro release albumId title subtitle>
+    <div class="card release-card">
         <div class="card-body">
-            <table>
-                <tr>
-                    <td>
-                        <iframe class="spotify-player" src="https://open.spotify.com/embed/track/1wwNgwcQ6j3rTJe6maVp3j"
-                                width="300"
-                                height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                    </td>
-                    <td>
-                        <p class="card-text"><#nested/></p>
-                    </td>
-                </tr>
-            </table>
+            <div class="row">
+                <div class="col-md-3">
+                    <iframe class="spotify-player" src="https://open.spotify.com/embed/album/${albumId}"
+                            frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+                <div class="col-md-9 order-first order-md-last">
+                    <h5 class="card-title">${title}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${subtitle}</h6>
+                    <p class="card-text"><#nested/></p>
+                </div>
+            </div>
         </div>
     </div>
 </#macro>

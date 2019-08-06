@@ -19,8 +19,8 @@ public class ReleasesController {
 
   @GetMapping("/releases")
   public ModelAndView releases() throws IOException, ParseException {
-    releaseService.getAllReleases();
-    return new ModelAndView("releases");
+    return new ModelAndView("releases")
+      .addObject("albumList", releaseService.getReleases());
   }
 
 
