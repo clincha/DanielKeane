@@ -24,7 +24,7 @@ public class ReleaseService {
 
 
   private static final String CLIENT_ID = "47317c5eed3b4029973a44bdfd82dbda";
-  private static final String CLIENT_SECRET = "";
+  private static final String CLIENT_SECRET = "5b684c366f8a485ba669f82679cd4143";
 
   public ArrayList<Album> getReleases() throws IOException, ParseException {
     HttpUriRequest request;
