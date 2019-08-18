@@ -9,6 +9,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -22,9 +23,11 @@ import java.util.LinkedHashMap;
 @Service
 public class ReleaseService {
 
+  @Value("${spotify.connection.id}")
+  private String CLIENT_ID;
 
-  private static final String CLIENT_ID = "47317c5eed3b4029973a44bdfd82dbda";
-  private static final String CLIENT_SECRET = "5b684c366f8a485ba669f82679cd4143";
+  @Value("${spotify.connection.secret}")
+  private String CLIENT_SECRET;
 
   public ArrayList<Album> getReleases() throws IOException, ParseException {
     HttpUriRequest request;
