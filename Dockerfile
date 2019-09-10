@@ -1,6 +1,5 @@
 FROM java:8-jdk-alpine
-RUN mkdir /usr/app
-COPY ./build/libs/DanielKeane-0.0.1.jar /usr/app
-WORKDIR /usr/app
-RUN sh -c "touch DanielKeane-0.0.1.jar"
+RUN mkdir /app
+COPY DanielKeane-0.0.1.jar /app
+WORKDIR /app
 ENTRYPOINT ["java", "-jar", "DanielKeane-0.0.1.jar"]
