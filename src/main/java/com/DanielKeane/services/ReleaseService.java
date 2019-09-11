@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.math.BigInteger;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -48,9 +47,6 @@ public class ReleaseService {
     responseJson = new JSONParser(response.getEntity().getContent()).parseObject();
 
     final String accessToken = responseJson.get("access_token").toString();
-
-    final BigInteger expires_in = (BigInteger) responseJson.get("expires_in");
-    final Instant expiry = Instant.now().plusSeconds(expires_in.longValue());
 
     request = RequestBuilder.get()
       .setUri("https://api.spotify.com/v1/artists/7GijLdxqYBxYpORf7W5ex1/albums")

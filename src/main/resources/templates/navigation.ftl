@@ -3,9 +3,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/gigs">Gigs</a>
                 </li>
 
@@ -22,9 +19,6 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/releases">Releases</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/donations">Donations</a>
                 </li>
             </ul>
         </div>
