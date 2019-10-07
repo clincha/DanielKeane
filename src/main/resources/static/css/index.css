@@ -16,3 +16,7 @@
 .full-view-height {
     height: 100vh;
 }
+
+.padded-row {
+    padding: 10px;
+}
