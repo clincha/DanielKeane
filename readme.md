@@ -1,18 +1,7 @@
 # Daniel Keane #
-### Requirements ###
-### After first design ###
-**Release page**
-* Links
-* Colours 
-* Font changed
+A website designed for Daniel Keane
 
-**About Section**
- +1
-
-**Navigation bar** 
-* Centered
-
-**General**
-* Sky Blue background
-* White font
-* Pink boxes
+### Getting started ###
+You'll need to copy the application-example.properties 
+file and replace the contents with Spotify connection details. Go to
+<https://developer.spotify.com> to learn more.
