@@ -1,4 +1,4 @@
-# Daniel Kean #
+# Daniel Keane #
 ### Requirements ###
 ### After first design ###
 **Release page**
