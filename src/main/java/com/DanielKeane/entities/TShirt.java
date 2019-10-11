@@ -1,12 +1,12 @@
 package com.DanielKeane.entities;
 
-public class Tshirt {
+public class TShirt {
 
     private String name;
     private String imageUrl;
     private int cost;
 
-    public Tshirt(String name, String imageUrl, int cost) {
+    public TShirt(String name, String imageUrl, int cost) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.cost = cost;

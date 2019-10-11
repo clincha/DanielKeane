@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="b102f229-0b25-412b-94d3-b47fab6073d2" name="Daniel Keane" url="http://3.10.29.169">
-        <fileTransfer host="3.10.29.169" port="22" privateKey="$USER_HOME$/.ssh/id_rsa" accessType="SFTP" keyPair="true">
+        <fileTransfer host="3.10.29.169" port="22" rootFolder="/app" accessType="SFTP" authAgent="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
           </advancedOptions>
