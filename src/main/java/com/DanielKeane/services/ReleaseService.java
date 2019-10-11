@@ -9,11 +9,14 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -27,6 +30,16 @@ public class ReleaseService {
 
   @Value("${spotify.connection.secret}")
   private String CLIENT_SECRET;
+
+  public void setReleaseText(String albumId, String cardText) throws IOException, ParseException {
+    boolean fileExists = Files.exists(Path.of("releaseData.json"));
+    JSONObject json = new JSONObject();
+    if (fileExists) {
+      json = new JSONObject(new JSONParser(Files.newInputStream(Path.of("releaseData.json"))).parseObject());
+    }
+    json.put(albumId, cardText);
+    Files.write(Path.of("releaseData.json"), json.toJSONString().getBytes());
+  }
 
   public ArrayList<Album> getReleases() throws IOException, ParseException {
     HttpUriRequest request;
@@ -61,10 +74,13 @@ public class ReleaseService {
 
     ArrayList<Album> albums = new ArrayList<>(albumsJson.size());
 
+    JSONObject albumData = new JSONObject(new JSONParser(Files.newInputStream(Path.of("releaseData.json"))).parseObject());
+
     for (LinkedHashMap<Object, Object> albumJson : albumsJson) {
       Album album = new Album(
         albumJson.get("id").toString(),
         albumJson.get("name").toString(),
+        albumData.get(albumJson.get("id").toString()) == null ? "" : albumData.get(albumJson.get("id").toString()).toString(),
         albumJson.get("album_group").toString(),
         ((BigInteger) albumJson.get("total_tracks")).intValue(),
         LocalDate.parse((CharSequence) albumJson.get("release_date"))
@@ -75,7 +91,6 @@ public class ReleaseService {
 
     return albums;
   }
-
 
   private String getEncodedClientDetails() {
     return Base64.getEncoder().withoutPadding().encodeToString((CLIENT_ID + ":" + CLIENT_SECRET).getBytes());
