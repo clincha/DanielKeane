@@ -32,13 +32,13 @@ public class ReleaseService {
   private String CLIENT_SECRET;
 
   public void setReleaseText(String albumId, String cardText) throws IOException, ParseException {
-    boolean fileExists = Files.exists(Path.of("releaseData.json"));
+    boolean fileExists = Files.exists(Path.of("/app/releaseData.json"));
     JSONObject json = new JSONObject();
     if (fileExists) {
-      json = new JSONObject(new JSONParser(Files.newInputStream(Path.of("releaseData.json"))).parseObject());
+      json = new JSONObject(new JSONParser(Files.newInputStream(Path.of("/app/releaseData.json"))).parseObject());
     }
     json.put(albumId, cardText);
-    Files.write(Path.of("releaseData.json"), json.toJSONString().getBytes());
+    Files.write(Path.of("/app/releaseData.json"), json.toJSONString().getBytes());
   }
 
   public ArrayList<Album> getReleases() throws IOException, ParseException {
@@ -74,13 +74,18 @@ public class ReleaseService {
 
     ArrayList<Album> albums = new ArrayList<>(albumsJson.size());
 
-    JSONObject albumData = new JSONObject(new JSONParser(Files.newInputStream(Path.of("releaseData.json"))).parseObject());
-
     for (LinkedHashMap<Object, Object> albumJson : albumsJson) {
+      String albumDescription = "";
+      boolean fileExists = Files.exists(Path.of("/app/releaseData.json"));
+      if (fileExists) {
+        JSONObject albumData = new JSONObject(new JSONParser(Files.newInputStream(Path.of("/app/releaseData.json"))).parseObject());
+        albumDescription = albumData.get(albumJson.get("id").toString()) == null ? "" : albumData.get(albumJson.get("id").toString()).toString();
+      }
+
       Album album = new Album(
         albumJson.get("id").toString(),
         albumJson.get("name").toString(),
-        albumData.get(albumJson.get("id").toString()) == null ? "" : albumData.get(albumJson.get("id").toString()).toString(),
+        albumDescription,
         albumJson.get("album_group").toString(),
         ((BigInteger) albumJson.get("total_tracks")).intValue(),
         LocalDate.parse((CharSequence) albumJson.get("release_date"))
