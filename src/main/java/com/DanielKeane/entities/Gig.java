@@ -1,51 +1,34 @@
 package com.DanielKeane.entities;
 
-import javax.swing.text.DateFormatter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 
+/**
+ * @author Angus Clinch
+ * @version 11/11/2019
+ **/
 public class Gig {
 
-    private String venue;
-    private LocalDateTime date;
-    private int price;
+  private String location;
+  private LocalDate time;
 
-    public Gig(String venue, LocalDateTime date, int price) {
-        this.venue = venue;
-        this.date = date;
-        this.price = price;
-    }
+  public Gig(String location, LocalDate time) {
+    this.location = location;
+    this.time = time;
+  }
 
-    public String getVenue() {
-        return venue;
-    }
+  public String getLocation() {
+    return location;
+  }
 
-    public void setVenue(String venue) {
-        this.venue = venue;
-    }
+  public void setLocation(String location) {
+    this.location = location;
+  }
 
-    public String getDate() {
-        return date.format(DateTimeFormatter.ISO_DATE);
-    }
+  public LocalDate getTime() {
+    return time;
+  }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Gig{" +
-                "venue='" + venue + '\'' +
-                ", date=" + date +
-                ", price=" + price +
-                '}';
-    }
+  public void setTime(LocalDate time) {
+    this.time = time;
+  }
 }
