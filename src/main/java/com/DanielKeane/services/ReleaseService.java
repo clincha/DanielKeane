@@ -32,13 +32,13 @@ public class ReleaseService {
   private String CLIENT_SECRET;
 
   public void setReleaseText(String albumId, String cardText) throws IOException, ParseException {
-    boolean fileExists = Files.exists(Path.of("/app/releaseData.json"));
+    boolean fileExists = Files.exists(Path.of("/app/data/releaseData.json"));
     JSONObject json = new JSONObject();
     if (fileExists) {
-      json = new JSONObject(new JSONParser(Files.newInputStream(Path.of("/app/releaseData.json"))).parseObject());
+      json = new JSONObject(new JSONParser(Files.newInputStream(Path.of("/app/data/releaseData.json"))).parseObject());
     }
     json.put(albumId, cardText);
-    Files.write(Path.of("/app/releaseData.json"), json.toJSONString().getBytes());
+    Files.write(Path.of("/app/data/releaseData.json"), json.toJSONString().getBytes());
   }
 
   public ArrayList<Album> getReleases() throws IOException, ParseException {
@@ -76,9 +76,9 @@ public class ReleaseService {
 
     for (LinkedHashMap<Object, Object> albumJson : albumsJson) {
       String albumDescription = "";
-      boolean fileExists = Files.exists(Path.of("/app/releaseData.json"));
+      boolean fileExists = Files.exists(Path.of("/app/data/releaseData.json"));
       if (fileExists) {
-        JSONObject albumData = new JSONObject(new JSONParser(Files.newInputStream(Path.of("/app/releaseData.json"))).parseObject());
+        JSONObject albumData = new JSONObject(new JSONParser(Files.newInputStream(Path.of("/app/data/releaseData.json"))).parseObject());
         albumDescription = albumData.get(albumJson.get("id").toString()) == null ? "" : albumData.get(albumJson.get("id").toString()).toString();
       }
 
