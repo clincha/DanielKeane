@@ -3,7 +3,7 @@ package com.DanielKeane.services;
 import com.DanielKeane.entities.Gig;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author Angus Clinch
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class GigsService {
 
   public Gig[] getGigs() {
-    Gig gig = new Gig("Cherry", LocalDate.now());
+    Gig gig = new Gig("Cherry Tree", LocalDateTime.now(), "fb.com/hi");
     return new Gig[]{gig};
   }
 
