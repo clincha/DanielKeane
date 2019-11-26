@@ -23,6 +23,7 @@
     </head>
     <body class="full-view-height">
     <@navigation.navbar/>
+
     <#nested "content">
 
     <!-- Optional JavaScript -->

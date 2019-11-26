@@ -1,0 +1,25 @@
+#video {
+    width: 100%;
+}
+
+#main-video {
+    width: 100%;
+    height: 50vh;
+    border: none;
+}
+
+.icon-container {
+    text-align: center;
+}
+
+i {
+    color: white;
+}
+
+.row {
+    padding-bottom: 2vh;
+}
+
+.spotify-player {
+    border: none;
+}
