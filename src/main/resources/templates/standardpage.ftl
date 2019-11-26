@@ -15,6 +15,8 @@
 
         <title>Daniel Keane</title>
 
+        <#nested "styles">
+
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/navigation.css">
         <link rel="stylesheet" href="/css/index.css">
@@ -24,9 +26,10 @@
     </head>
     <body class="full-view-height">
     <@navigation.navbar/>
-    <#nested>
+    <#nested "content">
 
     <!-- Optional JavaScript -->
+    <#nested "scripts">
     <script src="https://kit.fontawesome.com/62e2a21ac4.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -1,10 +1,12 @@
 <#import "standardpage.ftl" as layout>
-<@layout.standardPage>
-    <div class="container">
-        <div class="col-sm-12 col-md-9 col-centered">
-            <@gigs gigList/>
+<@layout.standardPage; section>
+    <#if section="content">
+        <div class="container">
+            <div class="col-sm-12 col-md-9 col-centered">
+                <@gigs gigList/>
+            </div>
         </div>
-    </div>
+    </#if>
 </@layout.standardPage>
 
 <#macro gigs gigList>
@@ -13,8 +15,7 @@
             <div class="card-body">
                 <img class="card-img-top" src="/images/band.jpeg" alt="Card image cap">
                 <h5 class="card-title">${gig.getVenue()} - ${gig.getDateTimeFormatted()}</h5>
-                <p class="card-text">${gig.getEventLink()}</p>
-                <a class="btn btn-primary" href="#">Buy Tickets</a>
+                <a class="btn btn-primary" href="${gig.getEventLink()}">Buy Tickets</a>
             </div>
         </div>
     </#list>
