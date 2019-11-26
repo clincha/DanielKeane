@@ -20,11 +20,11 @@
                     <input type="submit" class="btn btn-primary">
                 </form>
             </div>
-        </div><#-- javascript tags go in here -->
+        </div>
     </#if>
     <#if section="scripts">
-        <script type="text/javascript" src="/js/VenueSearch.js"></script>
         <script type="text/javascript"
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Z-2p3uKZfwIja4VukAHGYV9r_9xejQ4&libraries=places"></script>
+        <script type="text/javascript" src="/js/VenueSearch.js"></script>
     </#if>
 </@layout.standardPage>

@@ -45,4 +45,7 @@
             </div>
         </div>
     </#if>
+    <#if section = "styles">
+        <link rel="stylesheet" href="/css/index.css">
+    </#if>
 </@layout.standardPage>

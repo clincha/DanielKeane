@@ -19,10 +19,7 @@
 
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/navigation.css">
-        <link rel="stylesheet" href="/css/index.css">
-        <link rel="stylesheet" href="/css/gigs.css">
-        <link rel="stylesheet" href="/css/about.css">
-        <link rel="stylesheet" href="/css/release.css">
+
     </head>
     <body class="full-view-height">
     <@navigation.navbar/>

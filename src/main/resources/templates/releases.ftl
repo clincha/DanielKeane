@@ -12,4 +12,7 @@
             </div>
         </div>
     </#if>
+    <#if section = "styles">
+        <link rel="stylesheet" href="/css/release.css">
+    </#if>
 </@layout.standardPage>
