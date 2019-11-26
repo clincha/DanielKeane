@@ -3,7 +3,6 @@ package com.DanielKeane.controller;
 import com.DanielKeane.entities.Gig;
 import com.DanielKeane.services.GigsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +29,7 @@ public class GigsController {
   }
 
   @PostMapping("/gigs/manage")
-  public ModelAndView saveGig(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Gig gig) {
+  public ModelAndView saveGig(Gig gig) {
     System.out.println(gig);
     return new ModelAndView("gigs").addObject("gigList", new Gig[]{gig});
   }

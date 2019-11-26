@@ -41,8 +41,12 @@ public class Gig {
     this.venue = venue;
   }
 
-  public String getDatetime() {
-    return datetime.format(DateTimeFormatter.ISO_DATE_TIME);
+  public LocalDateTime getDatetime() {
+    return datetime;
+  }
+
+  public String getDateTimeFormatted() {
+    return datetime.format(DateTimeFormatter.ofPattern("d MMM YYYY"));
   }
 
   public void setDatetime(LocalDateTime datetime) {
