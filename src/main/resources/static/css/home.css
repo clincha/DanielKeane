@@ -22,4 +22,5 @@ i {
 
 .spotify-player {
     border: none;
+    min-height: 200px;
 }

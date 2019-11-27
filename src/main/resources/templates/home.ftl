@@ -33,24 +33,16 @@
 
             <div id="releases" class="row">
                 <div class="col"></div>
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
+                <div class="col-xl-6 col-12">
+                    <div class="spinner">
                         <#list albumList as album>
-                            <div class="carousel-item <#if album?index = 0>active</#if>">
+                            <div class="spinner-item">
                                 <iframe class="spotify-player"
                                         src="https://open.spotify.com/embed/album/${album.id}"
                                         allowtransparency="true" allow="encrypted-media"></iframe>
                             </div>
                         </#list>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
                 <div class="col"></div>
             </div>
@@ -62,10 +54,12 @@
         </div>
     </#if>
     <#if section = "styles">
-        <link type="text/css" rel="stylesheet" href="css/lightslider.css"/>
         <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
     </#if>
     <#if section = "scripts">
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="/js/slider.js"></script>
     </#if>
 </@layout.standardPage>
