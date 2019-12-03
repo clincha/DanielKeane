@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$" libraries="{62e2a21ac4, bootstrap, jquery, jquery-3.3.1, popper, slick}" />
+    <file url="file://$PROJECT_DIR$/src/main" libraries="{62e2a21ac4, bootstrap, jquery, jquery-3.3.1, popper, slick}" />
+    <file url="file://$PROJECT_DIR$/src/test" libraries="{62e2a21ac4, bootstrap, jquery, jquery-3.3.1, popper, slick}" />
+  </component>
+</project>

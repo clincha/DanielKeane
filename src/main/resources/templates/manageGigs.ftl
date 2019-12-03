@@ -1,25 +1,30 @@
 <#import "standardpage.ftl" as layout>
-<@layout.standardPage>
-    <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Z-2p3uKZfwIja4VukAHGYV9r_9xejQ4&libraries=places"></script>
-    <div class="container-fluid">
-        <div class="col-md-6 col-centered">
-            <form>
-                <div class="form-group">
-                    <label for="venueSearch">Event venue</label>
-                    <input id="venueSearch" class="form-control" type="text" placeholder="Search for a venue"><br>
-                </div>
-                <div class="form-group">
-                    <label for="date">Date of event</label>
-                    <input id="date" class="form-control" type="date"><br>
-                </div>
-                <div class="form-group">
-                    <label for="time">Time of event</label>
-                    <input id="time" class="form-control" type="time"><br>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+<@layout.standardPage; section>
+    <#if section = "content">
+        <div class="container-fluid">
+            <div class="col-md-6 col-centered">
+                <form action="/gigs/manage" method="post">
+                    <div class="form-group">
+                        <label for="venue">Event venue</label>
+                        <input id="venue" name="venue" class="form-control" type="text"
+                               placeholder="Search for a venue"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="datetime">Date of event</label>
+                        <input id="datetime" name="datetime" class="form-control" type="datetime-local"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventLink">Time of event</label>
+                        <input id="eventLink" name="eventLink" class="form-control" type="text"><br>
+                    </div>
+                    <input type="submit" class="btn btn-primary">
+                </form>
+            </div>
         </div>
-    </div>
-    <script type="text/javascript" src="/js/VenueSearch.js"></script>
+    </#if>
+    <#if section="scripts">
+        <script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Z-2p3uKZfwIja4VukAHGYV9r_9xejQ4&libraries=places"></script>
+        <script type="text/javascript" src="/js/VenueSearch.js"></script>
+    </#if>
 </@layout.standardPage>

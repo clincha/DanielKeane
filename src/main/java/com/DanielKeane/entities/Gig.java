@@ -1,6 +1,9 @@
 package com.DanielKeane.entities;
 
-import java.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author Angus Clinch
@@ -8,27 +11,53 @@ import java.time.LocalDate;
  **/
 public class Gig {
 
-  private String location;
-  private LocalDate time;
+  private String venue;
 
-  public Gig(String location, LocalDate time) {
-    this.location = location;
-    this.time = time;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private LocalDateTime datetime;
+
+  private String eventLink;
+
+  public Gig(String venue, LocalDateTime datetime, String eventLink) {
+    this.venue = venue;
+    this.datetime = datetime;
+    this.eventLink = eventLink;
   }
 
-  public String getLocation() {
-    return location;
+  @Override
+  public String toString() {
+    return "Gig{" +
+      "venue='" + venue + '\'' +
+      ", datetime=" + datetime +
+      ", eventLink='" + eventLink + '\'' +
+      '}';
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public String getVenue() {
+    return venue;
   }
 
-  public LocalDate getTime() {
-    return time;
+  public void setVenue(String venue) {
+    this.venue = venue;
   }
 
-  public void setTime(LocalDate time) {
-    this.time = time;
+  public LocalDateTime getDatetime() {
+    return datetime;
+  }
+
+  public String getDateTimeFormatted() {
+    return datetime.format(DateTimeFormatter.ofPattern("d MMM YYYY"));
+  }
+
+  public void setDatetime(LocalDateTime datetime) {
+    this.datetime = datetime;
+  }
+
+  public String getEventLink() {
+    return eventLink;
+  }
+
+  public void setEventLink(String eventLink) {
+    this.eventLink = eventLink;
   }
 }

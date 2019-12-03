@@ -1,4 +1,4 @@
-var input = document.getElementById("venueSearch");
+var input = document.getElementById("venue");
 var options = {
     types: ['establishment']
 };
