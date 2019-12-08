@@ -35,7 +35,7 @@
                 <div class="col"></div>
                 <div class="col-xl-6 col-12">
                     <div class="spinner">
-                        <#list albumList as album>
+                        <#list albums as album>
                             <div class="spinner-item">
                                 <iframe class="spotify-player"
                                         src="https://open.spotify.com/embed/album/${album.id}"
@@ -47,9 +47,20 @@
                 <div class="col"></div>
             </div>
 
-            <div id="gigs" class="row">
 
-            </div>
+            <#list gigs as gig>
+                <div id="gigs" class="row">
+                    <div class="col"></div>
+                    <div class="card col-xl-6 col-12">
+                        <div class="card-body">
+                            <img class="card-img-top" src="/images/band.jpeg" alt="Card image cap">
+                            <h5 class="card-title">${gig.getVenue()} - ${gig.getDateTimeFormatted()}</h5>
+                            <a class="btn btn-primary" href="${gig.getEventLink()}">Buy Tickets</a>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </#list>
 
         </div>
     </#if>

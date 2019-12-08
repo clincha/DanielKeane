@@ -1,8 +1,8 @@
 package com.DanielKeane.controller;
 
 import com.DanielKeane.entities.Gig;
+import com.DanielKeane.repository.GigsRepository;
 import com.DanielKeane.services.GigsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,10 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class GigsController {
 
   private GigsService gigsService;
+  private GigsRepository gigsRepository;
 
-  @Autowired
-  public GigsController(GigsService gigsService) {
+  public GigsController(GigsService gigsService, GigsRepository gigsRepository) {
     this.gigsService = gigsService;
+    this.gigsRepository = gigsRepository;
   }
 
   @GetMapping("/gigs")
@@ -30,7 +31,7 @@ public class GigsController {
 
   @PostMapping("/gigs/manage")
   public ModelAndView saveGig(Gig gig) {
-    System.out.println(gig);
+    gigsRepository.save(gig);
     return new ModelAndView("gigs").addObject("gigList", new Gig[]{gig});
   }
 

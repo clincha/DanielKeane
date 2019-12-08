@@ -1,5 +1,6 @@
 package com.DanielKeane.controller;
 
+import com.DanielKeane.services.GigsService;
 import com.DanielKeane.services.ReleaseService;
 import org.apache.tomcat.util.json.ParseException;
 import org.springframework.stereotype.Controller;
@@ -11,15 +12,19 @@ import java.io.IOException;
 @Controller
 public class HomeController {
 
-  final ReleaseService releaseService;
+  private final ReleaseService releaseService;
+  private final GigsService gigsService;
 
-  public HomeController(ReleaseService releaseService) {
+  public HomeController(ReleaseService releaseService, GigsService gigsService) {
     this.releaseService = releaseService;
+    this.gigsService = gigsService;
   }
 
   @GetMapping("/home")
   public ModelAndView home() throws IOException, ParseException {
-    return new ModelAndView("home").addObject("albumList", releaseService.getReleases());
+    return new ModelAndView("home")
+      .addObject("albums", releaseService.getReleases())
+      .addObject("gigs", gigsService.getGigs());
   }
 
   @GetMapping("/")
