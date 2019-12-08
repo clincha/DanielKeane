@@ -1,8 +1,9 @@
 <#import "standardpage.ftl" as layout>
 <@layout.standardPage; section>
     <#if section = "content">
-        <div class="container-fluid">
-            <div class="col-md-6 col-centered">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-xl-6">
                 <form action="/gigs/manage" method="post">
                     <div class="form-group">
                         <label for="venue">Event venue</label>
@@ -10,16 +11,21 @@
                                placeholder="Search for a venue"><br>
                     </div>
                     <div class="form-group">
-                        <label for="datetime">Date of event</label>
-                        <input id="datetime" name="datetime" class="form-control" type="datetime-local"><br>
+                        <label for="date">Date of event</label>
+                        <input id="date" name="date" class="form-control" type="date"><br>
                     </div>
                     <div class="form-group">
-                        <label for="eventLink">Time of event</label>
-                        <input id="eventLink" name="eventLink" class="form-control" type="text"><br>
+                        <label for="time">Time of event</label>
+                        <input id="time" name="time" class="form-control" type="time"><br>
                     </div>
-                    <input type="submit" class="btn btn-primary">
+                    <div class="form-group">
+                        <label for="link">Link to Facebook event</label>
+                        <input id="link" name="link" class="form-control" type="text"><br>
+                    </div>
+                    <input value="Create event" id="submit" type="submit" class="btn btn-primary">
                 </form>
             </div>
+            <div class="col"></div>
         </div>
     </#if>
     <#if section="scripts">

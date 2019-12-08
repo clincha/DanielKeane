@@ -1,5 +1,3 @@
-<#import "navigation.ftl" as navigation>
-
 <#macro standardPage>
     <!doctype html>
     <html lang="en">
@@ -17,15 +15,23 @@
 
         <#nested "styles">
 
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/navigation.css">
+        <link rel="stylesheet" href="/css/standardPage.css">
 
     </head>
     <body class="full-view-height">
-    <@navigation.navbar/>
 
-    <#nested "content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-xl-6">
+                <img id="header-logo" src="/images/LOGO%20PROPER.png" alt="Daniel Keane logo">
+            </div>
+            <div class="col"></div>
+        </div>
 
+        <#nested "content">
+
+    </div>
     <!-- Optional JavaScript -->
     <script src="https://kit.fontawesome.com/62e2a21ac4.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

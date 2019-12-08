@@ -1,5 +1,7 @@
-body {
-    background-color: black;
+#header-logo {
+    width: 100%;
+    margin: auto;
+    display: block;
 }
 
 .col-centered {

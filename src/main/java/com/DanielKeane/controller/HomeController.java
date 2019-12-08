@@ -1,7 +1,7 @@
 package com.DanielKeane.controller;
 
-import com.DanielKeane.services.GigsService;
-import com.DanielKeane.services.ReleaseService;
+import com.DanielKeane.service.GigsService;
+import com.DanielKeane.service.ReleaseService;
 import org.apache.tomcat.util.json.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +22,7 @@ public class HomeController {
 
   @GetMapping("/home")
   public ModelAndView home() throws IOException, ParseException {
+    System.out.println(gigsService.getGigs());
     return new ModelAndView("home")
       .addObject("albums", releaseService.getReleases())
       .addObject("gigs", gigsService.getGigs());

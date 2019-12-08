@@ -1,6 +1,6 @@
 package com.DanielKeane.controller;
 
-import com.DanielKeane.services.ReleaseService;
+import com.DanielKeane.service.ReleaseService;
 import org.apache.tomcat.util.json.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

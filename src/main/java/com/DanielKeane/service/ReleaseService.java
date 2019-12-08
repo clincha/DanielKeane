@@ -1,4 +1,4 @@
-package com.DanielKeane.services;
+package com.DanielKeane.service;
 
 import com.DanielKeane.entities.Album;
 import org.apache.http.HttpHeaders;
