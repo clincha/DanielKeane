@@ -30,7 +30,6 @@ public class GigsController {
 
   @PostMapping("/gigs/manage")
   public String saveGig(GigDao gigDao) {
-    System.out.println(gigDao);
     Gig gig = Gig.of(gigDao);
     gigsService.save(gig);
     return "redirect:/home";

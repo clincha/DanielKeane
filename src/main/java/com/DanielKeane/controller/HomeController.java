@@ -22,7 +22,6 @@ public class HomeController {
 
   @GetMapping("/home")
   public ModelAndView home() throws IOException, ParseException {
-    System.out.println(gigsService.getGigs());
     return new ModelAndView("home")
       .addObject("albums", releaseService.getReleases())
       .addObject("gigs", gigsService.getGigs());

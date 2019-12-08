@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-xl-6">
-                <img id="header-logo" src="/images/LOGO%20PROPER.png" alt="Daniel Keane logo">
+                <img id="header-logo" src="/images/LOGO%20PROPERV2.png" alt="Daniel Keane logo">
             </div>
             <div class="col"></div>
         </div>
