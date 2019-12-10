@@ -51,8 +51,11 @@
                 <div class="col"></div>
                 <div class="card col-xl-6 col-12">
                     <div class="card-body">
-                        <img class="card-img-top" src="/images/band.jpeg" alt="Card image cap">
-                        <h5 class="card-title">${gig.getVenue()} - ${gig.getFormattedTime()}</h5>
+                        <div id="${gig.getPlaceId()}" class="map"></div>
+                        <#if gig.getLatLng()??>
+                            <input id="${gig.getPlaceId()}:latlng" value="${gig.getLatLng().toString()}" type="hidden">
+                        </#if>
+                        <h5 class="card-title">${gig.getPlaceId()} - ${gig.getFormattedTime()}</h5>
                         <a class="btn btn-primary" href="${gig.getLink()}">Buy Tickets</a>
                     </div>
                 </div>
@@ -63,11 +66,14 @@
     </#if>
     <#if section = "styles">
         <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="/css/gigs.css">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
     </#if>
     <#if section = "scripts">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Z-2p3uKZfwIja4VukAHGYV9r_9xejQ4&callback=initMap"
+                async defer></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="/js/slider.js"></script>
+        <script src="js/map.js"></script>
     </#if>
 </@layout.standardPage>

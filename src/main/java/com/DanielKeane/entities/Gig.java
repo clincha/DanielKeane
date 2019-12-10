@@ -1,6 +1,7 @@
 package com.DanielKeane.entities;
 
 import com.DanielKeane.dao.GigDao;
+import com.google.maps.model.LatLng;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -21,25 +22,27 @@ public class Gig {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long ID;
 
-  private String venue;
+  private String placeId;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private LocalDateTime dateTime;
 
   private String link;
+  private LatLng latLng;
 
   public Gig() {
   }
 
-  private Gig(String venue, LocalDateTime dateTime, String link) {
-    this.venue = venue;
+  public Gig(String placeId, LocalDateTime dateTime, String link, LatLng latLng) {
+    this.placeId = placeId;
     this.dateTime = dateTime;
     this.link = link;
+    this.latLng = latLng;
   }
 
   public static Gig of(GigDao gigDao) {
     LocalDateTime localDateTime = LocalDateTime.of(gigDao.getDate(), gigDao.getTime());
-    return new Gig(gigDao.getVenue(), localDateTime, gigDao.getLink());
+    return new Gig(gigDao.getPlaceId(), localDateTime, gigDao.getLink(), null);
   }
 
   public String getFormattedTime() {
@@ -50,7 +53,7 @@ public class Gig {
   public String toString() {
     return "Gig{" +
       "ID=" + ID +
-      ", venue='" + venue + '\'' +
+      ", venueId='" + placeId + '\'' +
       ", dateTime=" + dateTime +
       ", link='" + link + '\'' +
       '}';
@@ -64,12 +67,12 @@ public class Gig {
     this.ID = ID;
   }
 
-  public String getVenue() {
-    return venue;
+  public String getPlaceId() {
+    return placeId;
   }
 
-  public void setVenue(String venue) {
-    this.venue = venue;
+  public void setPlaceId(String placeId) {
+    this.placeId = placeId;
   }
 
   public LocalDateTime getDateTime() {
@@ -86,5 +89,13 @@ public class Gig {
 
   public void setLink(String link) {
     this.link = link;
+  }
+
+  public LatLng getLatLng() {
+    return latLng;
+  }
+
+  public void setLatLng(LatLng latLng) {
+    this.latLng = latLng;
   }
 }

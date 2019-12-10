@@ -7,7 +7,7 @@ import java.time.LocalTime;
 
 public class GigDao {
 
-  private String venue;
+  private String placeId;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
   private LocalDate date;
@@ -16,29 +16,29 @@ public class GigDao {
 
   private String link;
 
-  public GigDao(String venue, LocalDate date, LocalTime time, String link) {
-    this.venue = venue;
-    this.date = date;
-    this.time = time;
-    this.link = link;
-  }
-
   @Override
   public String toString() {
     return "GigDao{" +
-      "venue='" + venue + '\'' +
+      "venueId='" + placeId + '\'' +
       ", date=" + date +
       ", time=" + time +
       ", link='" + link + '\'' +
       '}';
   }
 
-  public String getVenue() {
-    return venue;
+  public GigDao(String placeId, LocalDate date, LocalTime time, String link) {
+    this.placeId = placeId;
+    this.date = date;
+    this.time = time;
+    this.link = link;
   }
 
-  public void setVenue(String venue) {
-    this.venue = venue;
+  public String getPlaceId() {
+    return placeId;
+  }
+
+  public void setPlaceId(String placeId) {
+    this.placeId = placeId;
   }
 
   public LocalDate getDate() {

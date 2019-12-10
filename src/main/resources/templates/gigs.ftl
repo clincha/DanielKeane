@@ -1,4 +1,4 @@
-<#import "standardpage.ftl" as layout>
+<#import "standardpage.ftl" as layout>getVenue
 <@layout.standardPage; section>
     <#if section="content">
         <div class="container">
