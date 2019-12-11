@@ -12,13 +12,12 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * @author Angus Clinch
@@ -28,7 +27,6 @@ import java.util.LinkedHashMap;
 public class PlaceService {
 
   private PlaceRepository placeRepository;
-  private Logger logger = LoggerFactory.getLogger(PlaceService.class);
 
   public PlaceService(PlaceRepository placeRepository) {
     this.placeRepository = placeRepository;
@@ -42,23 +40,29 @@ public class PlaceService {
 
   private Place populateDetailsFromId(String placeId) {
     Place place = new Place(placeId);
-    String JSONString = makeMapsAPICall(placeId);
-    try {
-      LinkedHashMap responseJson = new JSONParser(JSONString).parseObject();
-      LinkedHashMap result = (LinkedHashMap) responseJson.get("result");
-      LinkedHashMap geometry = (LinkedHashMap) result.get("geometry");
-      LinkedHashMap location = (LinkedHashMap) geometry.get("location");
 
-      place.setLatLng(new LatLng(((BigDecimal) location.get("lat")).floatValue(), ((BigDecimal) location.get("lng")).floatValue()));
-    } catch (ParseException e) {
-      logger.error("Problem reading API return data");
-      throw new MapsApiConnectionException("Problem reading API return data", e);
-    }
+    place.setLatLng(getGeoDetails(placeId));
+
+    place.setName(getPlaceName(placeId));
+
     placeRepository.save(place);
     return place;
   }
 
-  String makeMapsAPICall(String placeId) {
+  String getPlaceName(String placeId) {
+    LinkedHashMap responseJson = makeMapsAPICall(placeId, List.of("name"));
+    return responseJson.get("name").toString();
+  }
+
+  LatLng getGeoDetails(String placeId) {
+    LinkedHashMap responseJson = makeMapsAPICall(placeId, List.of("geometry"));
+    LinkedHashMap geometry = (LinkedHashMap) responseJson.get("geometry");
+    LinkedHashMap location = (LinkedHashMap) geometry.get("location");
+
+    return new LatLng(((BigDecimal) location.get("lat")).floatValue(), ((BigDecimal) location.get("lng")).floatValue());
+  }
+
+  LinkedHashMap makeMapsAPICall(String placeId, List<String> fields) {
     HttpUriRequest request;
     CloseableHttpResponse response;
     CloseableHttpClient client = HttpClientBuilder.create().build();
@@ -67,7 +71,7 @@ public class PlaceService {
       .setUri("https://maps.googleapis.com/maps/api/place/details/json")
       .addParameter("key", "AIzaSyB2Z-2p3uKZfwIja4VukAHGYV9r_9xejQ4")
       .addParameter("place_id", placeId)
-      .addParameter("fields", "geometry")
+      .addParameter("fields", String.join(",", fields))
       .build();
 
     try {
@@ -82,7 +86,7 @@ public class PlaceService {
         LinkedHashMap responseJson = new JSONParser(content).parseObject();
         if (responseJson.get("status").equals("OK")) {
           client.close();
-          return content;
+          return (LinkedHashMap) new JSONParser(content).parseObject().get("result");
         } else {
           client.close();
           throw new MapsApiConnectionException("Invalid response. Response was: " + content);
