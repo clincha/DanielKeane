@@ -51,6 +51,7 @@ public class PlaceService {
 
   String getPlaceName(String placeId) {
     LinkedHashMap responseJson = makeMapsAPICall(placeId, List.of("name"));
+
     return responseJson.get("name").toString();
   }
 

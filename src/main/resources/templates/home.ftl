@@ -51,14 +51,15 @@
                 <div class="col"></div>
                 <div class="card col-xl-6 col-12">
                     <div class="card-body">
-                        <div class="container-fluid">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-3">
                                     <div id="${gig.getPlace().getId()}" class="map"></div>
                                 </div>
                                 <div class="col-9">
-                                    thircvsdufigotjkrnfksejidgrnfiemgjrenilfmogji slihgkgrnldrn sldrgnl drjs reoihgog
-                                    hrohisiughi erhgo iahre goa
+                                    <h5 class="card-title">${gig.getPlace().getName()}</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
                                 </div>
                             </div>
                         </div>
