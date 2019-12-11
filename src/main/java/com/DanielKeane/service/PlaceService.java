@@ -35,12 +35,12 @@ public class PlaceService {
   }
 
   Place getPlace(String placeId) {
-    Place place = getDetailsFromId(placeId);
-    placeRepository.save(place);
-    return place;
+    return placeRepository
+      .findById(placeId)
+      .orElse(populateDetailsFromId(placeId));
   }
 
-  private Place getDetailsFromId(String placeId) {
+  private Place populateDetailsFromId(String placeId) {
     Place place = new Place(placeId);
     String JSONString = makeMapsAPICall(placeId);
     try {
@@ -54,13 +54,13 @@ public class PlaceService {
       logger.error("Problem reading API return data");
       throw new MapsApiConnectionException("Problem reading API return data", e);
     }
+    placeRepository.save(place);
     return place;
   }
 
-  private String makeMapsAPICall(String placeId) {
+  String makeMapsAPICall(String placeId) {
     HttpUriRequest request;
     CloseableHttpResponse response;
-
     CloseableHttpClient client = HttpClientBuilder.create().build();
 
     request = RequestBuilder.get()
@@ -78,10 +78,25 @@ public class PlaceService {
     }
 
     try {
-      return IOUtils.toString(response.getEntity().getContent());
+      String content = IOUtils.toString(response.getEntity().getContent());
+      try {
+        LinkedHashMap responseJson = new JSONParser(content).parseObject();
+        System.out.println(responseJson.get("status"));
+        return content;
+      } catch (ParseException e) {
+        logger.error("Could not parse JSON content of maps API response");
+        throw new MapsApiConnectionException("Could not parse JSON content of maps API response", e);
+      }
     } catch (IOException e) {
       logger.error("Could not read content of maps API response");
       throw new MapsApiConnectionException("Could not read content of maps API response", e);
     }
+
+//    try {
+//      client.close();
+//    } catch (IOException e) {
+//      logger.error("Problems closing connection with API");
+//      throw new MapsApiConnectionException("Problems closing connection with API", e);
+//    }
   }
 }
