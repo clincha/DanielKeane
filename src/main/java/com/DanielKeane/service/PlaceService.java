@@ -62,6 +62,7 @@ public class PlaceService {
     HttpUriRequest request;
     CloseableHttpResponse response;
     CloseableHttpClient client = HttpClientBuilder.create().build();
+    int attempts = 3;
 
     request = RequestBuilder.get()
       .setUri("https://maps.googleapis.com/maps/api/place/details/json")
@@ -73,7 +74,6 @@ public class PlaceService {
     try {
       response = client.execute(request);
     } catch (IOException e) {
-      logger.error("Problem with internet connection");
       throw new MapsApiConnectionException("Problem with internet connection", e);
     }
 
@@ -81,22 +81,19 @@ public class PlaceService {
       String content = IOUtils.toString(response.getEntity().getContent());
       try {
         LinkedHashMap responseJson = new JSONParser(content).parseObject();
-        System.out.println(responseJson.get("status"));
-        return content;
+        if (responseJson.get("status").equals("OK")) {
+          client.close();
+          return content;
+        } else {
+          client.close();
+          throw new MapsApiConnectionException("Invalid response. Response was: " + content);
+        }
       } catch (ParseException e) {
-        logger.error("Could not parse JSON content of maps API response");
+        client.close();
         throw new MapsApiConnectionException("Could not parse JSON content of maps API response", e);
       }
     } catch (IOException e) {
-      logger.error("Could not read content of maps API response");
       throw new MapsApiConnectionException("Could not read content of maps API response", e);
     }
-
-//    try {
-//      client.close();
-//    } catch (IOException e) {
-//      logger.error("Problems closing connection with API");
-//      throw new MapsApiConnectionException("Problems closing connection with API", e);
-//    }
   }
 }
