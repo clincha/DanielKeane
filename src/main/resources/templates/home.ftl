@@ -51,12 +51,19 @@
                 <div class="col"></div>
                 <div class="card col-xl-6 col-12">
                     <div class="card-body">
-                        <div id="${gig.getPlaceId()}" class="map"></div>
-                        <#if gig.getLatLng()??>
-                            <input id="${gig.getPlaceId()}:latlng" value="${gig.getLatLng().toString()}" type="hidden">
-                        </#if>
-                        <h5 class="card-title">${gig.getPlaceId()} - ${gig.getFormattedTime()}</h5>
-                        <a class="btn btn-primary" href="${gig.getLink()}">Buy Tickets</a>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div id="${gig.getPlace().getId()}" class="map"></div>
+                                </div>
+                                <div class="col-9">
+                                    thircvsdufigotjkrnfksejidgrnfiemgjrenilfmogji slihgkgrnldrn sldrgnl drjs reoihgog
+                                    hrohisiughi erhgo iahre goa
+                                </div>
+                            </div>
+                        </div>
+                        <input id="${gig.getPlace().getId()}:latlng" value="${gig.getPlace().getLatLng().toString()}"
+                               type="hidden">
                     </div>
                 </div>
                 <div class="col"></div>

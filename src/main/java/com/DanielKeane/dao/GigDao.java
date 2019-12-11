@@ -19,7 +19,7 @@ public class GigDao {
   @Override
   public String toString() {
     return "GigDao{" +
-      "venueId='" + placeId + '\'' +
+      "placeId='" + placeId + '\'' +
       ", date=" + date +
       ", time=" + time +
       ", link='" + link + '\'' +

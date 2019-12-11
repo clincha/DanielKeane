@@ -10,7 +10,7 @@ function initMap() {
         let lng = parseFloat(latlng[1]);
         let options = {
             center: {lat: lat, lng: lng},
-            zoom: 18
+            zoom: 25
         };
         maps[i] = new google.maps.Map(mapDivs[i], options);
     }

@@ -1,13 +1,13 @@
 package com.DanielKeane.entities;
 
 import com.DanielKeane.dao.GigDao;
-import com.google.maps.model.LatLng;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -22,27 +22,26 @@ public class Gig {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long ID;
 
-  private String placeId;
-
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private LocalDateTime dateTime;
 
   private String link;
-  private LatLng latLng;
+
+  @ManyToOne
+  private Place place;
 
   public Gig() {
   }
 
-  public Gig(String placeId, LocalDateTime dateTime, String link, LatLng latLng) {
-    this.placeId = placeId;
+  private Gig(String placeId, LocalDateTime dateTime, String link) {
     this.dateTime = dateTime;
     this.link = link;
-    this.latLng = latLng;
+    this.place = new Place(placeId);
   }
 
   public static Gig of(GigDao gigDao) {
     LocalDateTime localDateTime = LocalDateTime.of(gigDao.getDate(), gigDao.getTime());
-    return new Gig(gigDao.getPlaceId(), localDateTime, gigDao.getLink(), null);
+    return new Gig(gigDao.getPlaceId(), localDateTime, gigDao.getLink());
   }
 
   public String getFormattedTime() {
@@ -53,7 +52,6 @@ public class Gig {
   public String toString() {
     return "Gig{" +
       "ID=" + ID +
-      ", venueId='" + placeId + '\'' +
       ", dateTime=" + dateTime +
       ", link='" + link + '\'' +
       '}';
@@ -65,14 +63,6 @@ public class Gig {
 
   public void setID(Long ID) {
     this.ID = ID;
-  }
-
-  public String getPlaceId() {
-    return placeId;
-  }
-
-  public void setPlaceId(String placeId) {
-    this.placeId = placeId;
   }
 
   public LocalDateTime getDateTime() {
@@ -91,11 +81,11 @@ public class Gig {
     this.link = link;
   }
 
-  public LatLng getLatLng() {
-    return latLng;
+  public Place getPlace() {
+    return place;
   }
 
-  public void setLatLng(LatLng latLng) {
-    this.latLng = latLng;
+  public void setPlace(Place place) {
+    this.place = place;
   }
 }

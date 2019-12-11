@@ -1,9 +1,8 @@
 package com.DanielKeane.controller;
 
 import com.DanielKeane.dao.GigDao;
-import com.DanielKeane.entities.Gig;
-import com.DanielKeane.repository.GigsRepository;
 import com.DanielKeane.service.GigsService;
+import com.DanielKeane.service.PlaceService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class GigsController {
 
   private GigsService gigsService;
+  private PlaceService placeService;
 
   public GigsController(GigsService gigsService) {
     this.gigsService = gigsService;
@@ -30,8 +30,7 @@ public class GigsController {
 
   @PostMapping("/gigs/manage")
   public String saveGig(GigDao gigDao) {
-    Gig gig = Gig.of(gigDao);
-    gigsService.save(gig);
+    gigsService.save(gigDao);
     return "redirect:/home";
   }
 
