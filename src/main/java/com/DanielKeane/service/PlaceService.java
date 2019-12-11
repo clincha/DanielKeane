@@ -62,7 +62,6 @@ public class PlaceService {
     HttpUriRequest request;
     CloseableHttpResponse response;
     CloseableHttpClient client = HttpClientBuilder.create().build();
-    int attempts = 3;
 
     request = RequestBuilder.get()
       .setUri("https://maps.googleapis.com/maps/api/place/details/json")
