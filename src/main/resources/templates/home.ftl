@@ -45,6 +45,18 @@
             </div>
             <div class="col"></div>
         </div>
+
+        <div id="contact-information" class="row">
+            <div class="col"></div>
+            <div class="col-xl-6 col-12">
+                <div id="contact-info-container">
+                    Daniel Keane
+                    <br>
+                    <a href="mailto:danowenwilliams@gmail.com">Contact</a>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
     </#if>
     <#if section = "styles">
         <link rel="stylesheet" href="/css/home.css">

@@ -28,3 +28,8 @@ i {
     border: none;
     min-height: 200px;
 }
+
+#contact-info-container {
+    font-family: "Times New Roman", serif;
+    text-align: center;
+}
