@@ -11,7 +11,7 @@
         </div>
 
         <div id="socialMedia" class="row">
-            <div class="col"></div>
+            <div class="col-xl-2 col-0"></div>
             <div class="icon-container col-xl-2 col-3">
                 <a href="https://www.facebook.com/DANIELKEANEUK/">
                     <i class="fab fa-facebook fa-3x"></i>
@@ -27,7 +27,12 @@
                     <i class="fab fa-instagram fa-3x"></i>
                 </a>
             </div>
-            <div class="col"></div>
+            <div class="icon-container col-xl-2 col-3">
+                <a href="https://www.paypal.me/danielofpeace">
+                    <i class="fab fa-paypal fa-3x"></i>
+                </a>
+            </div>
+            <div class="col-xl-2 col-0"></div>
         </div>
 
         <div id="releases" class="row">
