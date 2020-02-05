@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Gradle : com : DanielKeane-live.war">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="archive" name="DanielKeane-live.war">
+      <element id="artifact" artifact-name="Gradle : com : DanielKeane-live.war (exploded)" />
+    </root>
+  </artifact>
+</component>

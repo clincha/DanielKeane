@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Daniel Keane" />
+  <component name="PublishConfigData" autoUpload="Always" serverName="Daniel Keane" deleteMissingItems="true" createEmptyFolders="true" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="Daniel Keane">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/src/main" local="$PROJECT_DIR$/src/main" web="/" />
+            <mapping deploy="/src/test" local="$PROJECT_DIR$/src/test" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
 </project>
