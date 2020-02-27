@@ -4,8 +4,9 @@
         <div id="video-container" class="row">
             <div class="col"></div>
             <div id="video" class="col-xl-6">
-                <iframe id="main-video" src="https://www.youtube.com/embed/r4Ah8TgYO9U?autoplay=1"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                <iframe id="main-video" src="https://www.youtube.com/embed/R1NlqlvFd-E"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
             </div>
             <div class="col"></div>
         </div>
