@@ -64,11 +64,13 @@
             <div class="col"></div>
         </div>
     </#if>
+
     <#if section = "styles">
         <link rel="stylesheet" href="/css/home.css">
         <link rel="stylesheet" href="/css/gigs.css">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     </#if>
+
     <#if section = "scripts">
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Z-2p3uKZfwIja4VukAHGYV9r_9xejQ4&callback=initMap"
                 async defer></script>
