@@ -8,23 +8,13 @@ public class Album {
   private final String albumGroup;
   private final int totalTracks;
   private final LocalDate releaseDate;
-  private String description;
 
-  public Album(String id, String name, String description, String albumGroup, int totalTracks, LocalDate releaseDate) {
+  public Album(String id, String name, String albumGroup, int totalTracks, LocalDate releaseDate) {
     this.id = id;
     this.name = name;
     this.albumGroup = albumGroup;
     this.totalTracks = totalTracks;
     this.releaseDate = releaseDate;
-    this.description = description;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
   @Override
@@ -35,7 +25,6 @@ public class Album {
       ", albumGroup='" + albumGroup + '\'' +
       ", totalTracks=" + totalTracks +
       ", releaseDate=" + releaseDate +
-      ", albumText='" + description + '\'' +
       '}';
   }
 

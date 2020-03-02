@@ -9,14 +9,11 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.math.BigInteger;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -31,20 +28,10 @@ public class ReleaseService {
   @Value("${spotify.connection.secret}")
   private String CLIENT_SECRET;
 
-  public void setReleaseText(String albumId, String cardText) throws IOException, ParseException {
-    boolean fileExists = Files.exists(Path.of("/app/data/releaseData.json"));
-    JSONObject json = new JSONObject();
-    if (fileExists) {
-      json = new JSONObject(new JSONParser(Files.newInputStream(Path.of("/app/data/releaseData.json"))).parseObject());
-    }
-    json.put(albumId, cardText);
-    Files.write(Path.of("/app/data/releaseData.json"), json.toJSONString().getBytes());
-  }
-
   public ArrayList<Album> getReleases() throws IOException, ParseException {
     HttpUriRequest request;
     CloseableHttpResponse response;
-    LinkedHashMap responseJson;
+    LinkedHashMap<String, Object> responseJson;
 
     CloseableHttpClient client = HttpClientBuilder.create().build();
 
@@ -70,30 +57,21 @@ public class ReleaseService {
 
     responseJson = new JSONParser(response.getEntity().getContent()).parseObject();
 
-    ArrayList<LinkedHashMap<Object, Object>> albumsJson = (ArrayList<LinkedHashMap<Object, Object>>) responseJson.get("items");
+    ArrayList<LinkedHashMap<String, Object>> albumsJson = (ArrayList<LinkedHashMap<String, Object>>) responseJson.get("items");
 
     ArrayList<Album> albums = new ArrayList<>(albumsJson.size());
 
-    for (LinkedHashMap<Object, Object> albumJson : albumsJson) {
-      String albumDescription = "";
-      boolean fileExists = Files.exists(Path.of("/app/data/releaseData.json"));
-      if (fileExists) {
-        JSONObject albumData = new JSONObject(new JSONParser(Files.newInputStream(Path.of("/app/data/releaseData.json"))).parseObject());
-        albumDescription = albumData.get(albumJson.get("id").toString()) == null ? "" : albumData.get(albumJson.get("id").toString()).toString();
-      }
-
+    for (LinkedHashMap<String, Object> albumJson : albumsJson) {
       Album album = new Album(
         albumJson.get("id").toString(),
         albumJson.get("name").toString(),
-        albumDescription,
         albumJson.get("album_group").toString(),
         ((BigInteger) albumJson.get("total_tracks")).intValue(),
         LocalDate.parse((CharSequence) albumJson.get("release_date"))
       );
-
       albums.add(album);
     }
-
+    albums.removeIf(album -> album.getAlbumGroup().equals("appears_on"));
     return albums;
   }
 
