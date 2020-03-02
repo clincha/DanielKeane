@@ -15,17 +15,20 @@ public class HomeController {
 
   private final ReleaseService releaseService;
   private final Counter counter;
+  private com.DanielKeane.service.galleryService galleryService;
 
-  public HomeController(ReleaseService releaseService, MeterRegistry meterRegistry) {
+  public HomeController(ReleaseService releaseService, MeterRegistry meterRegistry, com.DanielKeane.service.galleryService galleryService) {
     this.releaseService = releaseService;
     this.counter = Counter.builder("hits.homepage").register(meterRegistry);
+    this.galleryService = galleryService;
   }
 
   @GetMapping("/home")
   public ModelAndView home() throws IOException, ParseException {
     counter.increment();
     return new ModelAndView("home")
-      .addObject("albums", releaseService.getReleases());
+      .addObject("albums", releaseService.getReleases())
+      .addObject("gallery", galleryService.getImageURIs());
   }
 
   @GetMapping("/")

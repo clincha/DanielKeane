@@ -32,8 +32,6 @@
         <#nested "content">
 
     </div>
-    <!-- Optional JavaScript -->
-    <script src="https://kit.fontawesome.com/62e2a21ac4.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
@@ -44,6 +42,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+
+    <!-- Optional JavaScript -->
+    <script src="https://kit.fontawesome.com/62e2a21ac4.js"></script>
     <#nested "scripts">
     </body>
     </html>
