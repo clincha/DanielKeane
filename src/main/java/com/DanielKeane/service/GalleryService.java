@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class galleryService {
+public class GalleryService {
 
   public List<String> getImageURIs() {
     try {
-      String galleryDirectory = "/home/aclinch/Documents/Code/DanielKeane/src/main/resources/static/images/gallery";
+      String galleryDirectory = "/app/DanielKeane/src/main/resources/static/images/gallery";
 
       return Files.list(new File(galleryDirectory).toPath())
         .map(path -> "/images/gallery/" + path.getFileName().toString())

@@ -15,9 +15,9 @@ public class HomeController {
 
   private final ReleaseService releaseService;
   private final Counter counter;
-  private com.DanielKeane.service.galleryService galleryService;
+  private com.DanielKeane.service.GalleryService galleryService;
 
-  public HomeController(ReleaseService releaseService, MeterRegistry meterRegistry, com.DanielKeane.service.galleryService galleryService) {
+  public HomeController(ReleaseService releaseService, MeterRegistry meterRegistry, com.DanielKeane.service.GalleryService galleryService) {
     this.releaseService = releaseService;
     this.counter = Counter.builder("hits.homepage").register(meterRegistry);
     this.galleryService = galleryService;
