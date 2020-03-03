@@ -4,7 +4,7 @@
 Description=Daniel Keane Website
 
 [Service]
-User=danielkeane
+User=root
 WorkingDirectory=/app/DanielKeane
 ExecStart=/bin/bash /app/DanielKeane/serverStart.sh
 Restart=always

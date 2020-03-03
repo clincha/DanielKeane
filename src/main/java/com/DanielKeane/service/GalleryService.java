@@ -11,11 +11,12 @@ import java.util.stream.Collectors;
 @Service
 public class GalleryService {
 
+  private static final String GALLERY_DIRECTORY = "src/main/resources/static/images/gallery";
+
   public List<String> getImageURIs() {
     try {
-      String galleryDirectory = "/app/DanielKeane/src/main/resources/static/images/gallery";
 
-      return Files.list(new File(galleryDirectory).toPath())
+      return Files.list(new File(GALLERY_DIRECTORY).toPath())
         .map(path -> "/images/gallery/" + path.getFileName().toString())
         .collect(Collectors.toList());
     } catch (IOException e) {

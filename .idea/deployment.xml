@@ -5,9 +5,9 @@
       <paths name="Daniel Keane">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-            <mapping deploy="/src/main" local="$PROJECT_DIR$/src/main" web="/" />
-            <mapping deploy="/src/test" local="$PROJECT_DIR$/src/test" web="/" />
+            <mapping deploy="/DanielKeane" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/DanielKeane/src/main" local="$PROJECT_DIR$/src/main" web="/" />
+            <mapping deploy="/DanielKeane/src/test" local="$PROJECT_DIR$/src/test" web="/" />
           </mappings>
         </serverdata>
       </paths>
