@@ -1,10 +1,12 @@
+# This file should be moved to --> /etc/systemd/system/danielkeane.service
+
 [Unit]
 Description=Daniel Keane Website
 
 [Service]
 User=danielkeane
-WorkingDirectory=/app
-ExecStart=/bin/bash /app/serverStart.sh
+WorkingDirectory=/app/DanielKeane
+ExecStart=/bin/bash /app/DanielKeane/serverStart.sh
 Restart=always
 RestartSec=5
 
