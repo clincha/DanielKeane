@@ -1,6 +1,7 @@
-# Daniel Keane #
-A website designed for Daniel Keane
+# Daniel Keane
+A website created for the artist Daniel Keane. 
+It's a SpringBoot application using Gradle to build it and Freemarker as a template engine.
 
-### Good references
-
-https://dzone.com/articles/run-your-java-application-as-a-service-on-ubuntu
+#### Building and running
+Look inside the Documentation folder. 
+There is a markdown file explaining exactly how to run the application
