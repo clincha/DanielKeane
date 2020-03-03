@@ -55,9 +55,9 @@
             <div class="col"></div>
             <div class="col-xl-6 col-12">
                 <div id="contact-info-container">
-                    Daniel Keane
+                    <a href="https://github.com/clincha">Created by Angus Clinch</a>
                     <br>
-                    <a href="mailto:danowenwilliams@gmail.com">Contact</a>
+                    <a href="mailto:danowenwilliams@gmail.com">Contact Dan</a>
                 </div>
             </div>
             <div class="col"></div>
