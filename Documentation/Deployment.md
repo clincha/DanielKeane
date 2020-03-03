@@ -51,10 +51,44 @@ This document outlines...
     1. Build the project
         1. Install Gradle
             
-            `sudo apt update && sudo apt update -Y && sudo apt install gradle -Y`
+            `sudo apt update && sudo apt update -Y && sudo apt install gradle -Y`       
         1. Build the project
             
             `gradle build`
+    1. Update the application.properties file
+        1. Go to the resources directory /app/DanielKeane/src/main/resources
+        1. Rename application-example.properties --> application.properties
+        1. Go to Spotify Developer Account for credentials (https://developer.spotify.com/dashboard)
+        1. Fill in application.properties file with credentials
+    1. Configure the port forwarding (8080 --> 80)
+    
+        `chmod +x networkSetup.sh`
+        `sudo ./networkSetup.sh`
+    
     1. Run Springboot
     
         `java -jar build/libs/DanielKeane-live.war`
+        
+    1. Check the URL/IP of the instance & play around
+
+1. Run it as a service
+    1. Create the service
+    
+        `sudo cp danielkeane.service /etc/systemd/system/danielkeane.service`
+    1. Start the service
+    
+        `sudo systemctl daemon-reload`
+        `sudo systemctl enable danielkeane.service`
+        `sudo service danielkeane start`
+        `sudo service danielkeane status`
+        
+    1. Logging
+    
+        `sudo journalctl -f -n 1000 -u danielkeane`
+        
+1. Point the domain to it
+    1. Login to the lightsail dashboard
+    1. Networking tab
+    1. Click on the DanielKeane-sip
+    1. Detach it from the old instance
+    1. Attach it to the new instance
