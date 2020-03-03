@@ -25,11 +25,20 @@ i {
 }
 
 .spotify-player {
-    border: none;
+    width: 100%;
     min-height: 200px;
+    border: none;
 }
 
 #contact-info-container {
     font-family: "Times New Roman", serif;
     text-align: center;
+}
+
+.grid-image {
+    width: 100%;
+}
+
+.card {
+    background-color: black;
 }

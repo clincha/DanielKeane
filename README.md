@@ -1,14 +1,7 @@
-# Daniel Keane #
-A website designed for Daniel Keane
+# Daniel Keane
+A website created for the artist Daniel Keane. 
+It's a SpringBoot application using Gradle to build it and Freemarker as a template engine.
 
-### Getting started ###
-You'll need to copy the application-example.properties 
-file and replace the contents with Spotify connection details. Go to
-<https://developer.spotify.com> to learn more.
-
-### Left to do
-- Allow Dan to be able to manage Gigs by himself
-- Display gigs on the home page
-- Remove all the navigation bars
-- Create some documentation for how to add/remove gigs
-- Assign the domain name to the AWS instance 
+#### Building and running
+Look inside the Documentation folder. 
+There is a markdown file explaining exactly how to run the application

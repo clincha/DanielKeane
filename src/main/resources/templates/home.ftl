@@ -36,29 +36,28 @@
             <div class="col-xl-3 col-0"></div>
         </div>
 
-        <div id="releases" class="row">
-            <div class="col"></div>
-            <div class="col-xl-6 col-12">
-                <div class="spinner">
-                    <#list albums as album>
-                        <div class="spinner-item">
-                            <iframe class="spotify-player"
-                                    src="https://open.spotify.com/embed/album/${album.id}"
-                                    allowtransparency="true" allow="encrypted-media"></iframe>
-                        </div>
-                    </#list>
+        <div class='card-columns'>
+            <#list albums as album>
+                <div class="card">
+                    <iframe class="spotify-player"
+                            src="https://open.spotify.com/embed/album/${album.id}"
+                            allowtransparency="true" allow="encrypted-media"></iframe>
                 </div>
-            </div>
-            <div class="col"></div>
+            </#list>
+            <#list gallery as image>
+                <div class="card">
+                    <img src="${image}" alt="Gallery image ${image?index}" class="grid-image">
+                </div>
+            </#list>
         </div>
 
         <div id="contact-information" class="row">
             <div class="col"></div>
             <div class="col-xl-6 col-12">
                 <div id="contact-info-container">
-                    Daniel Keane
+                    <a href="https://github.com/clincha">Created by Angus Clinch</a>
                     <br>
-                    <a href="mailto:danowenwilliams@gmail.com">Contact</a>
+                    <a href="mailto:danowenwilliams@gmail.com">Contact Dan</a>
                 </div>
             </div>
             <div class="col"></div>
@@ -67,15 +66,12 @@
 
     <#if section = "styles">
         <link rel="stylesheet" href="/css/home.css">
-        <link rel="stylesheet" href="/css/gigs.css">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     </#if>
 
     <#if section = "scripts">
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2Z-2p3uKZfwIja4VukAHGYV9r_9xejQ4&callback=initMap"
-                async defer></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="/js/slider.js"></script>
-        <script src="js/map.js"></script>
+        <script src="/js/gallery.js"></script>
     </#if>
 </@layout.standardPage>
