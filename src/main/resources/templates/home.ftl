@@ -36,26 +36,17 @@
             <div class="col-xl-3 col-0"></div>
         </div>
 
-        <div id="releases" class="row">
-            <div class="col"></div>
-            <div class="col-xl-6 col-12">
-                <div class="spinner">
-                    <#list albums as album>
-                        <div class="spinner-item">
-                            <iframe class="spotify-player"
-                                    src="https://open.spotify.com/embed/album/${album.id}"
-                                    allowtransparency="true" allow="encrypted-media"></iframe>
-                        </div>
-                    </#list>
+        <div class='card-columns'>
+            <#list albums as album>
+                <div class="card">
+                    <iframe class="spotify-player"
+                            src="https://open.spotify.com/embed/album/${album.id}"
+                            allowtransparency="true" allow="encrypted-media"></iframe>
                 </div>
-            </div>
-            <div class="col"></div>
-        </div>
-
-        <div class="grid">
+            </#list>
             <#list gallery as image>
-                <div class="col-xl-3 col-12">
-                    <img src="${image}" alt="Gallery image ${image?index}" class="grid-item">
+                <div class="card">
+                    <img src="${image}" alt="Gallery image ${image?index}" class="grid-image">
                 </div>
             </#list>
         </div>
@@ -79,8 +70,8 @@
     </#if>
 
     <#if section = "scripts">
-        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
         <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="/js/slider.js"></script>
+        <script src="/js/gallery.js"></script>
     </#if>
 </@layout.standardPage>
