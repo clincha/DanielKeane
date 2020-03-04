@@ -1,8 +1,0 @@
-kind: pipeline
-name: daniel-keane
-
-steps:
-  - name: build
-    image: gradle
-    commands:
-      - gradle build

@@ -56,10 +56,8 @@ This document outlines...
             
             `gradle build`
     1. Update the application.properties file
-        1. Go to the resources directory /app/DanielKeane/src/main/resources
-        1. Rename application-example.properties --> application.properties
         1. Go to Spotify Developer Account for credentials (https://developer.spotify.com/dashboard)
-        1. Fill in application.properties file with credentials
+        1. Fill in application.properties file with credentials (/app/DanielKeane/src/main/resources/application/properties)
     1. Configure the port forwarding (8080 --> 80)
     
         `chmod +x networkSetup.sh`
