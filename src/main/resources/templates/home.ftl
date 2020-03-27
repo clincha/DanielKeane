@@ -36,6 +36,8 @@
             <div class="col-xl-3 col-0"></div>
         </div>
 
+        <div id='podcast-widget'></div>
+
         <div class='card-columns'>
             <#list albums as album>
                 <div class="card">
@@ -73,5 +75,7 @@
         <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="/js/slider.js"></script>
         <script src="/js/gallery.js"></script>
+        <script type='text/javascript' charset='utf-8'
+                src='https://www.buzzsprout.com/797798.js?container_id=podcast-widget&player=large'></script>
     </#if>
 </@layout.standardPage>
