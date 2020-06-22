@@ -3,11 +3,10 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="b102f229-0b25-412b-94d3-b47fab6073d2" name="Daniel Keane" url="http://danielkeane.co.uk">
-        <fileTransfer host="danielkeane.co.uk" port="22" rootFolder="/app" accessType="SFTP" authAgent="true">
+        <fileTransfer rootFolder="/app" accessType="SFTP" sshConfigId="5aae1570-b306-435e-ab10-d8a82f305f98" sshConfig="Daniel Keane">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" shareSSLContext="true" />
           </advancedOptions>
-          <option name="port" value="22" />
         </fileTransfer>
       </webServer>
     </option>
