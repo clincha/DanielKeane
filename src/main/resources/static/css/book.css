@@ -20,3 +20,14 @@ h1 {
 .orange {
     color: orange;
 }
+
+.centered-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-orange {
+    background-color: orange;
+    border-color: darkorange;
+}
