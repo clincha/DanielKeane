@@ -34,11 +34,6 @@
     <div class="col-md-7 col-12">
         <div class="row">
             <div class="col">
-<#--                <#if title == "Foxes with Boxes 🦊">-->
-<#--                    <h1 class="orange">${title}</h1>-->
-<#--                <#else>-->
-<#--                    <h1>${title}</h1>-->
-<#--                </#if>-->
                 <h1 class="orange">${title}</h1>
                 <p>${text}</p>
                 <#if title == "Foxes with Boxes 🦊">
