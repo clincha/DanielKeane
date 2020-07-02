@@ -1,13 +1,7 @@
 <#import "standardpage.ftlh" as layout>
 <@layout.standardPage; section>
     <#if section = "content">
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-xl-6">
-                <img id="header-logo" src="/images/Logo - Red Sun.png" alt="Daniel Keane logo">
-            </div>
-            <div class="col"></div>
-        </div>
+        <@layout.logo/>
         <div id="video-container" class="row">
             <div class="col"></div>
             <div id="video" class="col-xl-6">

@@ -47,3 +47,23 @@
     </body>
     </html>
 </#macro>
+
+<#macro logo>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-xl-6">
+            <img id="header-logo" src="/images/Logo - Red Sun.png" alt="Daniel Keane logo">
+        </div>
+        <div class="col"></div>
+    </div>
+</#macro>
+
+<#macro navigation currentPage="Home">
+    <ul>
+        <li class="navigation-item text-segment <#if currentPage == "Home">active-current-page</#if>">Home</li>
+        <li class="navigation-item text-segment <#if currentPage == "Book">active-current-page</#if>">Book</li>
+        <li class="navigation-item text-segment <#if currentPage == "Podcasts">active-current-page</#if>">Podcast</li>
+        <li class="navigation-item text-segment <#if currentPage == "Music">active-current-page</#if>">Music</li>
+        <li class="navigation-item text-segment <#if currentPage == "Photography">active-current-page</#if>">Photography</li>
+    </ul>
+</#macro>
