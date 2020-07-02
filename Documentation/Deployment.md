@@ -35,7 +35,6 @@ This document outlines...
     
     1. Copy your private Github SSH certificate to ~/.ssh/id_rsa
     1. Add the private key to the OpenSSH client (for Github connection)
-        1. 
     
 1. Create and enter a new directory "/app"
     1. Make it yours
@@ -54,7 +53,7 @@ This document outlines...
             `sudo apt update && sudo apt update -Y && sudo apt install gradle -Y`       
         1. Build the project
             
-            `gradle build`
+            `./gradlew build`
     1. Update the application.properties file
         1. Go to Spotify Developer Account for credentials (https://developer.spotify.com/dashboard)
         1. Fill in application.properties file with credentials (/app/DanielKeane/src/main/resources/application/properties)
@@ -62,6 +61,8 @@ This document outlines...
     
         `chmod +x networkSetup.sh`
         `sudo ./networkSetup.sh`
+       
+       _This might need to be done manually by running each line by itself_
     
     1. Run Springboot
     
@@ -90,3 +91,18 @@ This document outlines...
     1. Click on the DanielKeane-sip
     1. Detach it from the old instance
     1. Attach it to the new instance
+    
+#### Deploying new version
+
+1. Pull the latest version
+
+    `git pull`
+
+1. Build
+
+    `./gradlew build`
+    
+1. Restart the service
+    
+    `sudo service danielkeane restart`
+    `sudo service danielkeane status`

@@ -1,0 +1,33 @@
+body {
+    background: dodgerblue;
+}
+
+.bookPhoto {
+    max-height: 45vh;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+}
+
+p {
+    font-size: 20pt;
+}
+
+h1 {
+    font-weight: bolder;
+}
+
+.orange {
+    color: orange;
+}
+
+.centered-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-orange {
+    background-color: orange;
+    border-color: darkorange;
+}

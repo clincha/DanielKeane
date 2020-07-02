@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="OPEN_SSH" host="danielkeane.co.uk" id="b6b1c2ca-404c-4720-9b5e-35721494ac8a" port="22" customName="Daniel Keane" nameFormat="CUSTOM" username="ubuntu">
+        <option name="customName" value="Daniel Keane" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
