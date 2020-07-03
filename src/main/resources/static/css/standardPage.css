@@ -27,7 +27,27 @@ body {
 }
 
 .navigation-item {
-    color: white;
     list-style: none;
-    font-size: xx-large;
+    display: inline-block;
+    padding-right: 5vw;
+}
+
+.navigation-item-text {
+    color: white;
+    font-size: 20pt;
+}
+
+.navigation-item-text:hover {
+    color: red;
+}
+
+@media (min-width: 768px) {
+    .navigation-item {
+        display: inherit;
+        padding-right: none;
+    }
+
+    .navigation-item-text {
+        font-size: 40pt;
+    }
 }

@@ -60,10 +60,20 @@
 
 <#macro navigation currentPage="Home">
     <ul>
-        <li class="navigation-item text-segment <#if currentPage == "Home">active-current-page</#if>">Home</li>
-        <li class="navigation-item text-segment <#if currentPage == "Book">active-current-page</#if>">Book</li>
-        <li class="navigation-item text-segment <#if currentPage == "Podcasts">active-current-page</#if>">Podcast</li>
-        <li class="navigation-item text-segment <#if currentPage == "Music">active-current-page</#if>">Music</li>
-        <li class="navigation-item text-segment <#if currentPage == "Photography">active-current-page</#if>">Photography</li>
+        <li class="navigation-item text-segment <#if currentPage == "Home">active-current-page</#if>">
+            <a class="navigation-item-text" href="/">Home<#if currentPage == "Home">.</#if></a>
+        </li>
+        <li class="navigation-item text-segment <#if currentPage == "Book">active-current-page</#if>">
+            <a class="navigation-item-text" href="/book">Book<#if currentPage == "Book">.</#if></a>
+        </li>
+        <li class="navigation-item text-segment <#if currentPage == "Podcasts">active-current-page</#if>">
+            <a class="navigation-item-text" href="/podcasts">Podcast<#if currentPage == "Podcasts">.</#if></a>
+        </li>
+        <li class="navigation-item text-segment <#if currentPage == "Music">active-current-page</#if>">
+            <a class="navigation-item-text" href="/music">Music<#if currentPage == "Music">.</#if></a>
+        </li>
+        <li class="navigation-item text-segment <#if currentPage == "Photography">active-current-page</#if>">
+            <a class="navigation-item-text" href="/photography">Photography<#if currentPage == "Photography">.</#if></a>
+        </li>
     </ul>
 </#macro>
