@@ -44,7 +44,7 @@ body {
 @media (min-width: 768px) {
     .navigation-item {
         display: inherit;
-        padding-right: none;
+        padding-right: inherit;
     }
 
     .navigation-item-text {
