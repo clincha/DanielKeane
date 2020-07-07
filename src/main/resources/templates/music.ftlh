@@ -3,7 +3,7 @@
     <#if section = "content">
         <@layout.logo/>
 
-        <div class="row music-heading-row">
+        <div class="row heading-row">
             <div class="col-md-6 col-12">
                 <@layout.navigation "Music"/>
             </div>

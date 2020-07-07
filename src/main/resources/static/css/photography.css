@@ -1,0 +1,14 @@
+.highlight-image {
+    height: 40vh;
+}
+
+.highlight-image-container {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .highlight-image {
+        width: 90vw;
+        height: 100%;
+    }
+}

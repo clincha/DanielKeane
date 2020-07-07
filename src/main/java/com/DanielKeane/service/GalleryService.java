@@ -11,13 +11,13 @@ import java.util.stream.Collectors;
 @Service
 public class GalleryService {
 
-  private static final String GALLERY_DIRECTORY = "src/main/resources/static/images/gallery";
+  private static final String GALLERY_DIRECTORY = "src/main/resources/static/gallery";
 
   public List<String> getImageURIs() {
     try {
 
       return Files.list(new File(GALLERY_DIRECTORY).toPath())
-        .map(path -> "/images/gallery/" + path.getFileName().toString())
+        .map(path -> "/gallery/" + path.getFileName().toString())
         .collect(Collectors.toList());
     } catch (IOException e) {
       System.out.println("Gallery not loaded correctly");

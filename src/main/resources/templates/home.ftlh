@@ -49,32 +49,19 @@
             </#list>
             <#list gallery as image>
                 <div class="card">
-                    <img src="${image}" alt="Gallery image ${image?index}" class="grid-image">
+                    <img class="grid-image" src="${image}" alt="Gallery image ${image?index}">
                 </div>
             </#list>
         </div>
-
-        <div id="contact-information" class="row">
-            <div class="col"></div>
-            <div class="col-xl-6 col-12">
-                <div id="contact-info-container">
-                    <a href="https://github.com/clincha">Created by Angus Clinch</a>
-                    <br>
-                    <a href="mailto:danowenwilliams@gmail.com">Contact Dan</a>
-                </div>
-            </div>
-            <div class="col"></div>
-        </div>
+        <@layout.contactInformation/>
     </#if>
 
     <#if section = "styles">
         <link rel="stylesheet" href="/css/home.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" href="/css/music.css">
     </#if>
 
     <#if section = "scripts">
-        <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="/js/slider.js"></script>
         <script src="/js/gallery.js"></script>
         <script type='text/javascript' charset='utf-8'

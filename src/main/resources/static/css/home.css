@@ -19,12 +19,3 @@ i {
 .row {
     padding-bottom: 2vh;
 }
-
-#contact-info-container {
-    font-family: "Times New Roman", serif;
-    text-align: center;
-}
-
-.grid-image {
-    width: 100%;
-}

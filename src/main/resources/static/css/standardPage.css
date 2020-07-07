@@ -51,3 +51,16 @@ body {
         font-size: 40pt;
     }
 }
+
+.grid-image {
+    width: 100%;
+}
+
+.heading-row {
+    padding-bottom: 5vh;
+}
+
+#contact-info-container {
+    font-family: "Times New Roman", serif;
+    text-align: center;
+}
