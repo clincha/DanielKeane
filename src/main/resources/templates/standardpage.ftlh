@@ -67,7 +67,7 @@
             <a class="navigation-item-text" href="/book">Book<#if currentPage == "Book">.</#if></a>
         </li>
         <li class="navigation-item text-segment <#if currentPage == "Podcasts">active-current-page</#if>">
-            <a class="navigation-item-text" href="/podcasts">Podcast<#if currentPage == "Podcasts">.</#if></a>
+            <a class="navigation-item-text" href="/podcast">Podcast<#if currentPage == "Podcasts">.</#if></a>
         </li>
         <li class="navigation-item text-segment <#if currentPage == "Music">active-current-page</#if>">
             <a class="navigation-item-text" href="/music">Music<#if currentPage == "Music">.</#if></a>

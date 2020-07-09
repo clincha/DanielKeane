@@ -32,4 +32,9 @@ public class MediaController {
                 .addObject("gallery", galleryService.getImageURIs());
     }
 
+    @GetMapping("podcast")
+    public ModelAndView podcast() {
+        return new ModelAndView("podcast");
+    }
+
 }
