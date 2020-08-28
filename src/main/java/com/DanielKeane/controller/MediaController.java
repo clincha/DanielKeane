@@ -26,9 +26,9 @@ public class MediaController {
                 .addObject("albums", releaseService.getReleases());
     }
 
-    @GetMapping("photography")
+    @GetMapping("consultancy")
     public ModelAndView photography() {
-        return new ModelAndView("photography")
+        return new ModelAndView("consultancy")
                 .addObject("gallery", galleryService.getImageURIs());
     }
 

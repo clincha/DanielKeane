@@ -4,7 +4,7 @@
         <@layout.logo/>
         <div class="row heading-row">
             <div class="col-md-4 col-12">
-                <@layout.navigation "Photography"/>
+                <@layout.navigation "Keane Consultancy"/>
             </div>
             <div class="col-md-8 col-12">
                 <div class="highlight-image-container">
@@ -22,7 +22,7 @@
         <@layout.contactInformation/>
     </#if>
     <#if section = "styles">
-        <link rel="stylesheet" href="/css/photography.css">
+        <link rel="stylesheet" href="/css/consultancy.css">
     </#if>
     <#if section = "scripts">
     </#if>
