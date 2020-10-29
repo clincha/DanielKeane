@@ -27,7 +27,7 @@ public class MediaController {
     }
 
     @GetMapping("consultancy")
-    public ModelAndView photography() {
+    public ModelAndView consultancy() {
         return new ModelAndView("consultancy")
                 .addObject("gallery", galleryService.getImageURIs());
     }

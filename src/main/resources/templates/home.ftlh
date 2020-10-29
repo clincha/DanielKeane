@@ -7,7 +7,7 @@
                 <@layout.navigation "Home"/>
             </div>
             <div class="col-md-8 col-12">
-                <iframe id="main-video" src="https://www.youtube.com/embed/x5dkFec5nGI"
+                <iframe id="main-video" src="https://www.youtube.com/embed/KdQ6d9oekPE"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
             </div>

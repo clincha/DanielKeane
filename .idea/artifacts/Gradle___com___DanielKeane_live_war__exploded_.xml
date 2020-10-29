@@ -2,13 +2,18 @@
   <artifact type="exploded-war" name="Gradle : com : DanielKeane-live.war (exploded)">
     <output-path>$PROJECT_DIR$/build/libs/exploded/DanielKeane-live.war</output-path>
     <properties id="gradle-properties">
-      <options external-project-path="$PROJECT_DIR$" />
+      <options external-project-path="$PROJECT_DIR$">
+        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
+      </options>
     </properties>
     <root id="root">
-      <element id="javaee-facet-resources" facet="DanielKeane.main/web/Web Gradle : DanielKeane-live.war" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/DanielKeane-live.war/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="DanielKeane_main/web/Web Gradle : DanielKeane-live.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="DanielKeane.main" />
+          <element id="module-output" name="DanielKeane_main" />
           <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
         </element>
         <element id="directory" name="lib">

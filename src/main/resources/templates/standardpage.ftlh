@@ -73,7 +73,7 @@
             <a class="navigation-item-text" href="/music">Music<#if currentPage == "Music">.</#if></a>
         </li>
         <li class="navigation-item text-segment <#if currentPage == "Keane Consultancy">active-current-page</#if>">
-            <a class="navigation-item-text" href="/photography">Keane
+            <a class="navigation-item-text" href="/consultancy">Keane
                 Consultancy<#if currentPage == "Keane Consultancy">.</#if></a>
         </li>
     </ul>
