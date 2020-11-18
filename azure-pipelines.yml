@@ -9,7 +9,7 @@ variables:
   imageRepository: 'danielkeaneweb'
   containerRegistry: 'danielkeane.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-   '$(Build.BuildId)'
+  tag: '$(Build.BuildId)'
   vmImageName: 'ubuntu-latest'
 
 stages:
