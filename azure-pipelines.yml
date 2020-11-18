@@ -9,7 +9,7 @@ variables:
   imageRepository: 'danielkeaneweb'
   containerRegistry: 'danielkeane.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+   '$(Build.BuildId)'
   vmImageName: 'ubuntu-latest'
 
 stages:
@@ -52,7 +52,7 @@ stages:
         ConnectionType: 'AzureRM'
         azureSubscription: 'Daniel Keane(4cb156f3-eaa3-4189-bc1d-71fc08366930)'
         appType: 'webAppContainer'
-        WebAppName: 'Daniel Keane'
+        WebAppName: 'danielkeane'
         DockerNamespace: $(containerRegistry)
         DockerRepository: $(imageRepository)
         DockerImageTag: $(tag)
