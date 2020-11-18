@@ -14,7 +14,7 @@ variables:
 
 stages:
 
-- stage: Build War File
+- stage: Build
   displayName: Build WAR file using Gradle
   jobs:  
   - job: Gradle
@@ -30,7 +30,7 @@ stages:
         javaHomeOption: 'JDKVersion'
         sonarQubeRunAnalysis: false
 
-- stage: Build
+- stage: Docker
   displayName: Build and push stage
   jobs:  
   - job: Build
