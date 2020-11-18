@@ -17,8 +17,8 @@ stages:
 - stage: Build
   displayName: Build WAR file using Gradle
   jobs:  
-  - job: Gradle
-    displayName: Gradle Build
+  - job: GradleDocker
+    displayName: Gradle Build & Docker Build & Docker Push
     pool:
       vmImage: $(vmImageName)
     steps:
@@ -38,3 +38,21 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
+- stage: Deploy
+  displayName: Deploy to Azure
+  jobs:  
+  - job: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Daniel Keane(4cb156f3-eaa3-4189-bc1d-71fc08366930)'
+        appType: 'webAppContainer'
+        WebAppName: 'Daniel Keane'
+        DockerNamespace: $(containerRegistry)
+        DockerRepository: $(imageRepository)
+        DockerImageTag: $(tag)
