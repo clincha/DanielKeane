@@ -13,9 +13,10 @@ public class GalleryService {
 
   private static final String GALLERY_DIRECTORY = "src/main/resources/static/gallery";
 
+
+
   public List<String> getImageURIs() {
     try {
-
       return Files.list(new File(GALLERY_DIRECTORY).toPath())
         .map(path -> "/gallery/" + path.getFileName().toString())
         .collect(Collectors.toList());

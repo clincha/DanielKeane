@@ -13,27 +13,24 @@ import java.io.IOException;
 @Controller
 public class HomeController {
 
-  private final ReleaseService releaseService;
-  private final Counter counter;
-  private com.DanielKeane.service.GalleryService galleryService;
+    private final ReleaseService releaseService;
+    private final Counter counter;
 
-  public HomeController(ReleaseService releaseService, MeterRegistry meterRegistry, com.DanielKeane.service.GalleryService galleryService) {
-    this.releaseService = releaseService;
-    this.counter = Counter.builder("hits.homepage").register(meterRegistry);
-    this.galleryService = galleryService;
-  }
+    public HomeController(ReleaseService releaseService, MeterRegistry meterRegistry) {
+        this.releaseService = releaseService;
+        this.counter = Counter.builder("hits.homepage").register(meterRegistry);
+    }
 
-  @GetMapping("/home")
-  public ModelAndView home() throws IOException, ParseException {
-    counter.increment();
-    return new ModelAndView("home")
-      .addObject("albums", releaseService.getReleases())
-      .addObject("gallery", galleryService.getImageURIs());
-  }
+    @GetMapping("/home")
+    public ModelAndView home() throws IOException, ParseException {
+        counter.increment();
+        return new ModelAndView("home")
+                .addObject("albums", releaseService.getReleases());
+    }
 
-  @GetMapping("/")
-  public String root() {
-    return "redirect:/home";
-  }
+    @GetMapping("/")
+    public String root() {
+        return "redirect:/home";
+    }
 
 }

@@ -10,10 +10,10 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/DanielKeane-live.war/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="DanielKeane_main/web/Web Gradle : DanielKeane-live.war" />
+      <element id="javaee-facet-resources" facet="com.DanielKeane.main/web/Web Gradle : DanielKeane-live.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="DanielKeane_main" />
+          <element id="module-output" name="com.DanielKeane.main" />
           <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
         </element>
         <element id="directory" name="lib">
